@@ -1,14 +1,15 @@
 <?php
 
+use Livewire\Attributes\Validate;
 use App\Models\Team;
 
 new class extends \Livewire\Volt\Component {
     public Team $team;
 
-    #[\Livewire\Attributes\Validate('required')]
+    #[Validate('required')]
     public $name = '';
 
-    #[\Livewire\Attributes\Validate('required|email')]
+    #[Validate('required|email')]
     public $email = '';
 
     public function mount()
@@ -24,17 +25,20 @@ new class extends \Livewire\Volt\Component {
             'email' => $this->email,
         ]);
 
-        $this->team->save();
+        Flux::toast('Your team profile has been updated.');
     }
 }
 ?>
 
-<form wire:submit="save">
-    {{-- Heading: Team profile --}}
-    {{-- Subheading: You can update your team profile here --}}
+<form wire:submit="save" class="space-y-6">
+    <div>
+        <flux:heading>Team profile</flux:heading>
+        <flux:subheading>You can update your team profile here</flux:subheading>
+    </div>
 
-    {{-- Input: Team name --}}
-    {{-- Input: Billing email --}}
+    <flux:input wire:model="name" label="Team name" />
 
-    {{-- Submit button: Save changes --}}
+    <flux:input wire:model="email" label="Billing email" />
+
+    <flux:button type="submit" variant="primary">Save changes</flux:button>
 </form>

@@ -1,5 +1,6 @@
 <?php
 
+use Livewire\Attributes\Renderless;
 use App\Models\Team;
 
 new class extends \Livewire\Volt\Component {
@@ -18,7 +19,7 @@ new class extends \Livewire\Volt\Component {
         $this->security = $this->team->security;
     }
 
-    #[\Livewire\Attributes\Renderless]
+    #[Renderless]
     public function updated()
     {
         $this->team->update([
@@ -32,11 +33,22 @@ new class extends \Livewire\Volt\Component {
 ?>
 
 <div>
-    {{-- Heading: Team notifications --}}
-    {{-- Subheading: Manage which notification features are enabled for your team --}}
+    <flux:heading>Team notifications</flux:heading>
+    <flux:subheading>Manage which notification features are enabled for your team</flux:subheading>
 
-    {{-- Switch: Communication emails --}}
-    {{-- Switch: Marketing emails --}}
-    {{-- Switch: Social emails --}}
-    {{-- Switch: Security emails --}}
+    <flux:card class="space-y-4 mt-8">
+        <flux:switch wire:model.live="communication" label="Communication emails" description="Receive emails about new messages, comments, and more." />
+
+        <flux:separator variant="subtle" />
+
+        <flux:switch wire:model.live="marketing" label="Marketing emails" description="Receive emails about your account activity and security." />
+
+        <flux:separator variant="subtle" />
+
+        <flux:switch wire:model.live="social" label="Social emails" description="Receive emails about your account activity and security." />
+
+        <flux:separator variant="subtle" />
+
+        <flux:switch wire:model.live="security" label="Security emails" description="Receive emails about your account activity and security." />
+    </flux:card>
 </div>
