@@ -22,7 +22,7 @@ new class extends \Livewire\Volt\Component {
         <flux:subheading>Manage your team profile and members</flux:subheading>
     </div>
 
-    <flux:tab.group variant="flush" class="mt-8 max-w-lg">
+    <flux:tab.group class="mt-8 max-w-lg">
         <flux:tabs wire:model="tab">
             <flux:tab name="profile">Profile</flux:tab>
             <flux:tab name="members">Members</flux:tab>

@@ -10,6 +10,7 @@
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
         "livewire/flux-pro": "dev-main",
+        "livewire/livewire": "^3.6",
         "livewire/volt": "^1.6"
     },
     "require-dev": {
@@ -64,16 +65,20 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "repositories": {
+        "livewire": {
+            "type": "path",
+            "url": "../livewire"
+        },
         "flux": {
             "type": "path",
-            "url": "./../flux"
+            "url": "../flux"
         },
         "flux-pro": {
             "type": "path",
-            "url": "./../flux-pro"
+            "url": "../flux-pro"
         }
     }
 }
