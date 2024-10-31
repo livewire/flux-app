@@ -29,7 +29,7 @@
     <body class="min-h-screen bg-white dark:bg-zinc-800 antialiased">
         {{ $slot }}
 
-        @persist('hey')
+        @persist('toast')
             <flux:toast />
         @endpersist
 
