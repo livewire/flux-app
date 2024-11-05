@@ -26,7 +26,7 @@
 
         @fluxStyles()
     </head>
-    <body class="min-h-screen bg-white dark:bg-zinc-800 antialiased">
+    <body class="min-h-screen bg-white dark:bg-zinc-800 antialiased p-8">
         {{ $slot }}
 
         @persist('toast')
